@@ -41,18 +41,7 @@
                 deviceType: deviceType
             };
 
-            document.body.innerHTML = `
-                <div id="deviceInfo"
-                     data-user-agent="${userAgent}"
-                     data-platform="${platform}"
-                     data-language="${language}"
-                     data-screen-width="${screenWidth}"
-                     data-screen-height="${screenHeight}"
-                     data-ip-address="${ipAddress}"
-                     data-device-type="${deviceType}">
-                </div>
-                <h1>Información capturada:</h1>
-                <pre>${JSON.stringify(info, null, 2)}</pre>`;
+            document.getElementById("deviceInfo").textContent = JSON.stringify(info);
         }
 
         window.onload = getDeviceInfo;
@@ -60,5 +49,6 @@
 </head>
 <body>
     <h1>Capturando información del dispositivo...</h1>
+    <div id="deviceInfo"></div>
 </body>
 </html>
